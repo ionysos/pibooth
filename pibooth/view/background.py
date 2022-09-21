@@ -221,7 +221,9 @@ class IntroBackground(Background):
                 x = int(self._rect.left + self._rect.width // 4
                         - self.left_arrow.get_rect().width // 2)
                 if self.arrow_location == ARROW_TOP:
-                    y = self._rect.top + 10
+                    inter = (self._rect.width - 2 * self.left_arrow.get_rect().width) // 4
+                    x = int(self._rect.left + inter) - (self._rect.width * 0.11)
+                    y = self._rect.top + 5
                 else:
                     y = int(self._rect.top + 2 * self._rect.height // 3)
 
@@ -289,7 +291,9 @@ class IntroWithPrintBackground(IntroBackground):
             x = int(self._rect.left + self._rect.width // 2
                     - self.right_arrow.get_rect().width // 2)
             if self.arrow_location == ARROW_TOP:
-                y = self._rect.top + 10
+                inter = (self._rect.width - 2 * self.right_arrow.get_rect().width) // 4
+                x = int(self._rect.left + inter) - (self._rect.width * 0.11)
+                y = self._rect.top + 5
             else:
                 y = int(self._rect.bottom - self.right_arrow.get_rect().height * 1.1)
             self.right_arrow_pos = (x - self.arrow_offset, y)
@@ -352,8 +356,8 @@ class ChooseBackground(Background):
             if self.arrow_location in [ARROW_TOP, ARROW_BOTTOM]:
                 if self.arrow_location == ARROW_TOP:
                     y = 5
-                    x_offset = 30
-                    size = (self._rect.width * 0.1, self._rect.top + y + 30)
+                    x_offset = (self._rect.width * 0.11)
+                    size = (self._rect.width * 0.1, self._rect.bottom * 0.27)
                 else:
                     x_offset = 0
                     y = self.layout0_pos[1] + self.layout0.get_rect().height + 5
@@ -513,7 +517,9 @@ class PrintBackground(Background):
                 x = int(self._rect.left + self._rect.width * 0.75
                         - self.right_arrow.get_rect().width // 2)
                 if self.arrow_location == ARROW_TOP:
-                    y = self._rect.top + 10
+                    inter = (self._rect.width - 2 * self.right_arrow.get_rect().width) // 4
+                    x = int(self._rect.left + inter) - (self._rect.width * 0.11)
+                    y = self._rect.top + 5
                 else:
                     y = int(self._rect.top + 2 * self._rect.height // 3)
 
@@ -535,7 +541,9 @@ class PrintBackground(Background):
                     - self.left_arrow.get_rect().width // 2)
 
             if self.arrow_location == ARROW_TOP:
-                y = self._rect.top + 10
+                inter = (self._rect.width - 2 * self.left_arrow.get_rect().width) // 4
+                x = int(self._rect.left + inter) - (self._rect.width * 0.11)
+                y = self._rect.top + 5
             else:
                 y = int(self._rect.bottom - self.left_arrow.get_rect().height * 1.1)
 
